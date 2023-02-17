@@ -190,23 +190,32 @@ width: 9em;
 }
 
 .sidenav {
-height: 100%;
-width: 160px;
-position: absolute;
-z-index: 1;
-top: 0;
-left: 0;
-overflow-x: hidden;
-padding-top: 10%;
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #f1f1f1;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
 }
 
 .sidenav a {
-height: 100%;
-padding: 6px 9px 6px 16px;
-text-decoration: none;
-font-size: 25px;
-display: block;
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
 }
+
+.sidenav a:hover {
+  color: #f1f1f1;
+  background-color: #555;
+}
+
 
 sidebar_content {
 margin-left: 5%;

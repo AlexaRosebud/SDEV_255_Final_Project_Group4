@@ -99,8 +99,8 @@ margin-left: auto;
 
 #homehero {
 height: 300px;
-background-image: url("book.jpg");
-background-size: 100% 100%;
+background-image: url("college.svg");
+background-size: cover;
 background-repeat: no-repeat;
 margin-left: 170px;
 }

@@ -41,16 +41,36 @@ font-size: 3em;
 }
 
 nav {
-font-weight: bold;
-font-size: 1.2em;
-background-color: #FFFFFF;
-padding-top: 0;
-padding-right: 0;
-padding-bottom: 0;
-float: left;
-width: 160px;
-position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  background-color: #FFFFFF;
+  padding: 1em;
 }
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin-right: 1em;
+}
+
+nav a {
+  text-decoration: none;
+  color: #5335ca;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #893BFF;
+}
+
 
 h2 {
 color: #05074d;

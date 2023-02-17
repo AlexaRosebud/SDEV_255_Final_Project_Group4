@@ -98,13 +98,15 @@ font-weight: bold;
 
 
 footer {
-background-color: #FFFFFF;
-margin-left: 170px;
-font-size: 0.70em;
-font-style: italic;
-text-align: center;
-padding: 1em;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
 }
+
 
 #wrapper {
 width: 80%;

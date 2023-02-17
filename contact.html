@@ -21,9 +21,7 @@
             <h2>Are you ready to sign up?</h2>
             <h3>Complete This Form To Contact Us</h3>
             <p>Required fields are marked with an asterisk*.</p>
-            <form method="post" action="https://webdevbasics.net/scripts/pacific.php">
-                <label for="myFName">*First Name:</label>
-                <input type="text" name="myFName" id="myFName" required="required"><br>
+            <form method="post" action="confirmation.html"text" name="myFName" id="myFName" required="required"><br>
                 <label for="myLName">*Last Name:</label>
                 <input type="text" name="myLName" id="myLName" required="required"><br>
                 <label for="myMailing">*Mailing Address:</label>
@@ -31,10 +29,12 @@
                 <label for="myE-mail">*Student E-mail:</label>
                 <input type="email" name="myE-mail" id="myE-mail" required="required"><br>
                 <label for="myPhone">*Phone:</label>
-                <input type="tel" name="myPhone" id="myPhone" placeholder="xxx-xxx-xxxx" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required="required"><br>
+                <input type="tel" name="myPhone" id="myPhone" placeholder="xxx-xxx-xxxx" pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}" required="required">
+<br>
                 <label for="myComment">Comments:</label>
                 <textarea name="myComment" id="myComment" cols="30" rows="7"></textarea><br><br><br><br>
                 <input type="submit" id="mySubmit" value="Submit"><br><br><br>
+
             </form>
             <div>
                 <span class="contact">College Info</span><br>

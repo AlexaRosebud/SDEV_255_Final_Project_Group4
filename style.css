@@ -82,13 +82,15 @@ font-family: Linotype Didot;
 }
 
 main {
-background-color: #FFFFFF;
-margin-left: 170px;
-overflow: auto;
-padding-left: 2em;
-padding-right: 2em;
-display: block;
+  background-color: #FFFFFF;
+  margin-left: 170px;
+  overflow: auto;
+  padding-left: 2em;
+  padding-right: 2em;
+  display: block;
+  margin-bottom: 5rem; /* Add this line */
 }
+
 
 dt {
 color: #893BFF;

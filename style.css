@@ -3,14 +3,14 @@ box-sizing: border-box;
 }
 
 body {
-  background-color: #dadbdd;
+  background-color: #f9f4b8;
   color: #5335ca;
   font-family: 'Linotype Didot', serif;
   font-size: 16px;
 }
 
 header {
-  background-color: #5335ca;
+  background-color: #f9f4b8;
   color: #1c1c1c;
   font-family: 'Linotype Didot', serif;
   background-position: right;
@@ -46,7 +46,7 @@ nav {
   align-items: center;
   font-weight: bold;
   font-size: 1.2em;
-  background-color: #FFFFFF;
+
   padding: 1em;
 }
 
@@ -105,7 +105,7 @@ footer {
   bottom: 0;
   width: 100%;
   padding: 1rem;
-  background-color: #efefef;
+  background-color: #f9f4b8;
   text-align: center;
 }
 
@@ -113,7 +113,7 @@ footer {
 #wrapper {
 width: 80%;
 background-color: #FFFFFF;
-background-image: linear-gradient(to right, #FFFFFF, #0c0c5a);
+background-image: linear-gradient(to right, #FFFFFF, #1a34ff);
 min-width: 960px;
 max-width: 2048px;
 box-shadow: 5px 10px #000;
@@ -160,26 +160,7 @@ height: 200px;
 clear: right;
 }
 
-nav a {
-text-decoration: none;
-}
 
-nav a:link {
-color: #893BFF;
-}
-
-nav a:visited { 
-color: #CCCCFF;
-}
-
-nav a:hover {
-color: #9E7BFF;
-}
-
-nav ul {
-list-style-type: none;
-padding-left: 1em;
-}
 
 section {
 float: left;

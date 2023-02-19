@@ -3,19 +3,23 @@ box-sizing: border-box;
 }
 
 body {
-  background-color: #f9f4b8;
+  background-color: #ffffff;
   color: #5335ca;
   font-family: 'Linotype Didot', serif;
   font-size: 16px;
+  margin:4em;
+  padding: 2px;
+ line-height: 1.5;
 }
 
 header {
-  background-color: #f9f4b8;
-  color: #1c1c1c;
-  font-family: 'Linotype Didot', serif;
-  background-position: right;
-  background-repeat: no-repeat;
-  height: 10vh;
+  background-image: linear-gradient(rgba(9, 5, 54, 0.3), rgba(5,4,46,0.7)), url("college.svg");
+	width: auto;
+	height: auto;
+	background-size:contain;
+	background-position: center center;
+	display: flex;
+	justify-content:flex-end;
 }
 
 header a {
@@ -36,18 +40,19 @@ header a:hover {
 h1 {
 text-align: center;
 padding-top: .5em;
-letter-spacing: 0.25em;
+letter-spacing:.1em;
 font-size: 3em;
+    color:#616161;
 }
 
 nav {
-  display: flex;
+  display:flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: bold;
-  font-size: 1.2em;
-
   padding: 1em;
+  font-weight: bold;
+  font-size: 1.5em;
+background-image: linear-gradient(to right, #FFFFFF, #6ca0f4);
 }
 
 nav ul {
@@ -63,7 +68,7 @@ nav li {
 
 nav a {
   text-decoration: none;
-  color: #5335ca;
+  color: #3d3d3d;
   transition: color 0.2s ease;
 }
 
@@ -82,7 +87,7 @@ font-family: Linotype Didot;
 }
 
 main {
-  background-color: #FFFFFF;
+  background-color: #fffbeb;
   margin-center: 170px;
   overflow: auto;
   padding-left: 2em;
@@ -105,28 +110,29 @@ footer {
   bottom: 0;
   width: 100%;
   padding: 1rem;
-  background-color: #f9f4b8;
+  background-color: #ffffff;
   text-align: center;
 }
 
 
 #wrapper {
-width: 80%;
+width: auto;
+height: auto;
 background-color: #FFFFFF;
-background-image: linear-gradient(to right, #FFFFFF, #1a34ff);
-min-width: 960px;
-max-width: 2048px;
-box-shadow: 5px 10px #000;
+box-shadow: 5px 10px #d5cdcd;
 margin-right: auto;
 margin-left: auto;
 }
 
 #homehero {
-height: 300px;
+height: 400px;
+width: 100%;
 background-image: url("college.svg");
+background-position: center;
 background-size: cover;
 background-repeat: no-repeat;
-margin-center: 170px;
+align-items: center;
+justify-content:space-between;
 }
 
 #carthero {
@@ -246,7 +252,11 @@ margin-left: 5%;
   box-sizing: border-box; 
   display: inline-block; 
 }
-
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+ 
 
 
 

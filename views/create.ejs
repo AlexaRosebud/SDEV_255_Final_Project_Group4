@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+
+<body>
+
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="create-course content">
+        <h2>Create a new course</h2>
+        <form action="/create-course" method="POST">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          <label for="credits">Credits:</label>
+          <input type="number" id="credits" name="credits" required>
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" required></textarea>
+          <button>Create</button>
+        </form>
+        <h2>All Courses</h2>
+        <ul>
+          <% courses.forEach((course) => { %>
+            <li><%= course.name %> - <%= course.credits %> credits</li>
+          <% }); %>
+        </ul>
+      </div>
+      
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

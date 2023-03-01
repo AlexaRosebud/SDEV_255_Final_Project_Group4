@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include('./partials/head.ejs') %>
-    <div id="wrapper">
 <body>
 
     <%- include('./partials/nav.ejs') %>
@@ -15,7 +14,7 @@
           <input type="number" id="credits" name="credits" required>
           <label for="description">Description:</label>
           <textarea id="description" name="description" required></textarea>
-          <button>Create</button>
+          <button type="submit" name="submitBtn">Create</button>
         </form>
         <h2>All Courses</h2>
         <ul>
@@ -24,7 +23,29 @@
           <% }); %>
         </ul>
       </div>
-      
-    <%- include('./partials/footer.ejs') %>
+
+    <script>
+        const form = document.querySelector('form');
+        
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          const name = document.getElementById('name').value;
+          const credits = document.getElementById('credits').value;
+          const description = document.getElementById('description').value;
+          
+          fetch('/create-course', {
+            method: 'POST',
+            body: JSON.stringify({name, credits, description}),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+            .then(response => response.json())
+            .then(data => window.location.href = data.redirect)
+            .catch(err => console.log(err));
+        });
+    </script>
+     <%- include('./partials/footer.ejs') %>
 </body>
 </html>

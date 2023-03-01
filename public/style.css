@@ -90,6 +90,11 @@ nav a:hover {
   }
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 
 h1 {
 text-align: center;

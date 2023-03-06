@@ -1,45 +1,182 @@
-function confirmSubmit() {
-  var result = confirm("Are you sure you want to submit this form?");
-  if (result == true) {
-       document.getElementById("myForm").submit();
-  } else {
-   }
-}
+const express = require('express');
+const morgan = require('morgan');
+const mongoose = require('mongoose');
+const Course = require('./models/courses');
 
-//SignUp/Login
-const container = document.querySelector(".container"),
-      pwShowHide = document.querySelectorAll(".showHidePw"),
-      pwFields = document.querySelectorAll(".password"),
-      signUp = document.querySelector(".signup-link"),
-      login = document.querySelector(".login-link");
 
-    //   js code to show/hide password and change icon
-    pwShowHide.forEach(eyeIcon =>{
-        eyeIcon.addEventListener("click", ()=>{
-            pwFields.forEach(pwField =>{
-                if(pwField.type ==="password"){
-                    pwField.type = "text";
+//express app
+const app = express();
+app.set('view engine', 'ejs');
 
-                    pwShowHide.forEach(icon =>{
-                        icon.classList.replace("uil-eye-slash", "uil-eye");
-                    })
-                }else{
-                    pwField.type = "password";
-
-                    pwShowHide.forEach(icon =>{
-                        icon.classList.replace("uil-eye", "uil-eye-slash");
-                    })
-                }
-            }) 
-        })
+//connect to mongodb
+const dbURI ='mongodb+srv://kbrumback:test1234@cluster0.kpdgknd.mongodb.net/FinalProject?retryWrites=true&w=majority';
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true})
+    .then((result) => {
+        app.listen(3000, () => {
+            console.log('Server started on port 3000');
+        });
     })
+    .catch((err) => console.log(err));
 
-    // js code to appear signup and login form
-    signUp.addEventListener("click", ( )=>{
-        container.classList.add("active");
+// mongoose and mongo sandbox routes
+const courseSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  credits: {
+    type: Number,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  }
+});
+
+
+// register view engine
+app.set('view engine', 'ejs');
+
+// middleware & static files
+app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true}));
+app.use(morgan('dev'));
+
+// home page route
+app.get('/', (req, res) => {
+    res.redirect('/home');
+});
+
+// home page route
+app.get('/home', (req, res) => {
+    res.render('home', { title: 'Home' });
+});
+
+// create page route
+app.get('/create', (req, res) => {
+    res.render('create', { title: 'Create Course' });
+});
+
+//
+app.get('/login_create', (req, res) => {
+  res.render('login_create', { title: 'New User' });
+});
+
+// about page route
+app.get('/about', (req, res) => {
+    res.render('about', { title: 'About' });
+});
+
+// contact page route
+app.get('/contact', (req, res) => {
+    res.render('contact', { title: 'Contact' });
+});
+
+// login page route
+app.get('/login', (req, res) => {
+    res.render('login', { title: 'Login' });
+});
+
+// shopping cart route
+app.get('/cart', (req, res) => {
+    res.render('cart', { title: 'Shopping Cart' });
+});
+
+// confirmation route
+app.get('/confirmation', (req, res) => {
+    res.render('confirmation', { title: 'Confirmation' });
+});
+
+// shop route
+app.get('/shop', (req, res) => {
+    res.render('shop', { title: 'Shop' });
+});
+
+//new course route
+app.post('/courses', (req, res) => {
+  const { name, credits, description } = req.body;
+  const newCourse = new Course({ name, credits, description });
+  newCourse.save()
+    .then(() => {
+      res.redirect('/courses');
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send('Error creating course');
     });
-    login.addEventListener("click", ( )=>{
-        container.classList.remove("active");
+});
+
+// create course route
+app.post('/create-course', (req, res) => {
+  const course = new Course({
+    name: req.body.name,
+    credits: req.body.credits,
+    description: req.body.description
+  });
+
+// save to database
+  course.save()
+    .then(result => {
+      res.json({redirect: '/create'});
+    })
+    .catch(err => {
+      console.log(err);
     });
+});
 
 
+// delete course route
+app.post('/courses/:id/delete', (req, res) => {
+  const courseId = req.params.id;
+  Course.findByIdAndDelete(courseId)
+    .then(() => {
+      res.redirect('/courses');
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send('Error deleting course');
+    });
+});
+
+
+// courses route
+app.get('/courses', (req, res) => {
+    const courses = [
+      { name: 'Math', credits: 3 },
+      { name: 'Science', credits: 4 },
+      { name: 'English', credits: 2 }
+    ];
+    res.render('create', { title: 'Create Course', courses });
+});
+
+// Handle POST request to create a new course
+app.post('/create-course', (req, res) => {
+    const { name, credits, description } = req.body;
+      res.redirect('/courses');
+  });
+  
+
+//courses find route
+// app.get('/courses', (req, res) => {
+//     Course.find()
+//       .then(courses => {
+//         res.render('courses', { title: 'Courses', courses });
+//       })
+//       .catch(err => console.log(err));
+//   });
+  
+// // course details route
+// app.get('/courses/:id', (req, res) => {
+//     const id = req.params.id;
+//     Course.findById(id)
+//       .then(course => {
+//         res.render('course_details', { title: 'Course Details', course });
+//       })
+//       .catch(err => console.log(err));
+//   });
+
+// 404 page - this HAS to be at the bottom of the page otherwise express will match based on per list item
+app.use((req, res) => {
+    res.status(404).render('404', { title: '404' });
+});

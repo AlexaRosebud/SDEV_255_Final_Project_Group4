@@ -1,0 +1,22 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+<body>
+  <%- include("./partials/nav.ejs") %>
+  <div id="wrapper">
+  <div class="courses content">
+    <h2>All Courses</h2>
+
+    <% if (courses && courses.length > 0) { %>
+      <% courses.forEach(course => { %>
+
+        <h3 class="title"><%= course.name %></h3>
+        <p class="snippet"><%= course.snippet %></p>
+
+      <% }) %>
+    <% } else { %>
+      <p>There are no current courses to display...</p>
+    <% } %>
+  </div>
+  <%- include("./partials/footer.ejs") %>
+</body>
+</html>

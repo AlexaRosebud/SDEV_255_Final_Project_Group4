@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+<div id="wrapper">
+<main>
+    <img src="/pictures/students_grad.jpg" alt="College image">
+
+    <main class="main-body">
+        <h1>Welcome to the Univeristy of Kul Tiras</h1>
+        <p>
+            <script type="text/javascript">
+              writeRandomQuote = function () {
+                var quotes = new Array();
+                quotes[0] = "Action is the real measure of intelligence.";
+                quotes[1] = "Baseball has the great advantage over cricket of being sooner ended.";
+                quotes[2] = "Every goal, every action, every thought, every feeling one experiences, whether it be consciously or unconsciously known, is an attempt to increase one's level of peace of mind.";
+                quotes[3] = "A good head and a good heart are always a formidable combination.";
+                var rand = Math.floor(Math.random()*quotes.length);
+                document.write(quotes[rand]);
+              }
+              writeRandomQuote();
+            </script>  <br>
+            test
+            <h2>Online Campus Opportunities</h2>
+            test
+            <h2>New Students</h2>
+            test
+            <h2>More than Just a University</h2>
+            test
+            <h2>Reviews</h2>
+            test
+        </p>
+        <h2>Established since 1894</h2>
+</main>
+<%- include('./partials/footer.ejs') %>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <div id="wrapper"></div>    
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <div class="container">
+      <div class="forms">
+        <div class="form login">
+          <div class="main-block">
+            <h1>Login</h1>
+            <form>
+              <hr>
+              <label id="icon" for="email"><i class="fas fa-envelope"></i></label>
+              <input type="text" name="email" id="email" placeholder="Email" required/>
+              <label id="icon" for="password"><i class="fas fa-lock"></i></label>
+              <input type="password" name="password" id="password" placeholder="Password" required/>
+              <div class="btn-block">
+                <button type="submit">Login</button>
+              </div>
+            </form>
+          </div>
+          <div class="login-signup">
+            <span class="text">Not a member?
+              <a href="/login_create" class="text signup-link">Signup Now</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+<%- include('./partials/footer.ejs') %>
+  </body>
+</html>

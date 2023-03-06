@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+<main>
+
+<h2>       What courses do we offer?      </h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis nemo dicta nesciunt exercitationem expedita impedit, quia tempore magni unde sequi beatae id? Inventore accusantium eveniet quos doloremque, distinctio explicabo numquam?
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae quia minus, numquam animi fuga libero ut sapiente aliquam? Suscipit natus, fugit repellendus voluptas voluptate laborum deserunt fuga dolorem aut nulla? Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+
+<section class="shop">
+
+<img src="Psycology.jpg" alt="">
+
+<h3>Course #5678</h3>
+<p id="psychology">Psychology</p>
+
+<button type="button" onclick="myFunction1()">Learn More</button>
+
+<script>
+function myFunction1() {
+  document.getElementById("psychology").innerHTML = "Psychology is the scientific study of the human mind and the reasons for people's behavior.";
+}
+</script><br>
+
+
+</section>
+
+<section class="shop">
+
+<img src="algebra.jpg"  alt="">
+
+<h3>Course #1234</h3>
+
+<p id="math">Intro to Algebra</p>
+
+<button type="button" onclick="myFunction2()">Learn More</button>
+
+<script>
+function myFunction2() {
+  document.getElementById("math").innerHTML = "Algebra is the part of mathmatics that helps represent problems or situations in the form of mathematical expressions";
+}
+</script><br> 
+</section>
+
+</main>
+</div>
+<%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

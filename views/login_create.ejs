@@ -6,23 +6,27 @@
     <%- include('./partials/nav.ejs') %>
     <div class="container">
       <div class="forms">
-        <div class="form login">
+        <div class="form signup">
           <div class="main-block">
-            <h1>Login</h1>
+            <h1>Create Account</h1>
             <form>
               <hr>
+              <label id="icon" for="name"><i class="fas fa-user"></i></label>
+              <input type="text" name="name" id="name" placeholder="Full Name" required/>
               <label id="icon" for="email"><i class="fas fa-envelope"></i></label>
-              <input type="text" name="email" id="email" placeholder="Email" required/>
+              <input type="email" name="email" id="email" placeholder="Email" required/>
               <label id="icon" for="password"><i class="fas fa-lock"></i></label>
               <input type="password" name="password" id="password" placeholder="Password" required/>
+              <label id="icon" for="confirm-password"><i class="fas fa-lock"></i></label>
+              <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm Password" required/>
               <div class="btn-block">
-                <button type="submit">Login</button>
+                <button type="submit">Create Account</button>
               </div>
             </form>
           </div>
           <div class="login-signup">
-            <span class="text">Not a member?
-              <a href="/login_create" class="text signup-link">Signup Now</a>
+            <span class="text">Already have an account?
+              <a href="/login" class="text signup-link">Login Now</a>
             </span>
           </div>
         </div>

@@ -53,9 +53,14 @@ app.get('/home', (req, res) => {
     res.render('home', { title: 'Home' });
 });
 
-// about page route
+// create page route
 app.get('/create', (req, res) => {
     res.render('create', { title: 'Create Course' });
+});
+
+//
+app.get('/login_create', (req, res) => {
+  res.render('login_create', { title: 'New User' });
 });
 
 // about page route
